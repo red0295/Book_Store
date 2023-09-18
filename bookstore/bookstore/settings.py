@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'django_otp',
     'django_otp.plugins.otp_totp',
     'books',
-    
+   'corsheaders', 
     
 ]
 AUTH_USER_MODEL='accounts.User'
@@ -60,7 +60,12 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
+
+CORS_ALLOWED_ORIGINS = [
+       'http://localhost:3000', 
+   ]
 
 ROOT_URLCONF = 'bookstore.urls'
 
