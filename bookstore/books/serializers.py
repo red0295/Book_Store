@@ -2,6 +2,7 @@ from rest_framework import serializers
 from .models import Product,Cart,Wishlist,Order,Genre
 
 class GenreSerializer(serializers.ModelSerializer):
+    
     class Meta:
         model=Genre
         fields='__all__' 
@@ -10,7 +11,7 @@ class ProductSerializer(serializers.ModelSerializer):
     genre=serializers.StringRelatedField()
     class Meta:
         model=Product
-        fields='__all__'
+        fields = ['id', 'genre', 'productName', 'productDescription', 'productPrice', 'productSalePrice', 'productImage', 'productType', 'productStatus', 'productSKU']
 class CartSerializer(serializers.ModelSerializer):
     product=ProductSerializer(many=True)
     
